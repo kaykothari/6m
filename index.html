@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Happy Anniversary</title>
 
-    <!-- Bootstrap 5.3 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +19,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body class="d-flex flex-column align-items-center justify-content-center min-vh-100">
+<body class="flex-column flex-center">
 
     <!-- Desktop: iPhone Frame Wrapper -->
     <div class="phone-wrapper">
@@ -35,8 +32,7 @@
 
             <!-- Safe Area / Status Bar -->
             <header class="status-bar">
-                <span class="fw-semibold"
-                    style="font-size: 15px; letter-spacing: 0.05em; user-select: none;">9:41</span>
+                <span class="font-bold" style="font-size: 15px; letter-spacing: 0.05em; user-select: none;">9:41</span>
             </header>
 
             <!-- Scrollable Content Area -->
@@ -44,7 +40,7 @@
 
                 <!-- Section 1: The Greeting -->
                 <section class="snap-section sec-greeting">
-                    <div class="d-flex flex-column align-items-start w-100 px-2 position-relative z-1">
+                    <div class="flex-column w-100 position-relative" style="z-index: 1; padding: 0 8px;">
                         <div id="counter" class="counter-container">
                             <div class="text-happy">HAPPY</div>
                             <div class="counter-row text-months">
@@ -62,16 +58,17 @@
                             <div class="counter-row text-seconds">
                                 <span id="seconds">0</span> <span id="seconds-label">seconds</span>
                             </div>
-                            <div class="position-relative w-100 h-0" style="z-index: 20; overflow: visible;">
+                            <div class="position-relative w-100" style="height: 0; z-index: 20; overflow: visible;">
                                 <div class="text-bbg">BBG</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Memory Image -->
-                    <div
-                        class="mt-auto flex-fill w-100 d-flex justify-content-end align-items-end position-relative pt-4 overflow-hidden">
-                        <img src="assets/img/Colorised.png" alt="Memory" class="mw-100 mh-100 object-fit-contain">
+                    <div class="w-100"
+                        style="margin-top: auto; flex: 1; display: flex; justify-content: flex-end; align-items: flex-end; position: relative; padding-top: 24px; overflow: hidden;">
+                        <img src="assets/img/Colorised.png" alt="Memory"
+                            style="max-width: 100%; max-height: 100%; object-fit: contain;">
                     </div>
                 </section>
 
@@ -86,7 +83,7 @@
                     <!-- Middle Chat/GIF Area -->
                     <article class="chat-middle">
                         <img id="chat-gif" src="assets/img/chat.gif?v=iphone-fix-7" loading="eager" decoding="sync"
-                            class="w-100 h-auto mh-100" style="transform: translateZ(0);" alt="Chat Recording">
+                            class="w-100 h-100" style="height: auto; transform: translateZ(0);" alt="Chat Recording">
 
                         <!-- The Text Overlay -->
                         <div class="chat-overlay-text">
@@ -102,8 +99,8 @@
 
                 <!-- Section 3: The Scrapbook - Part 1 -->
                 <section class="snap-section sec-scrapbook-1 sec-center-content">
-                    <div class="w-100 text-center mb-5">
-                        <h2 class="font-hand display-5 text-black">our digital diary</h2>
+                    <div class="w-100 text-center mb-20">
+                        <h2 class="font-hand" style="font-size: 2.5rem; color: black; margin: 0;">our digital diary</h2>
                     </div>
 
                     <!-- Memory 1: Digicam -->
@@ -112,35 +109,39 @@
                             <img src="assets/img/digicam.png" alt="Digicam" class="digicam-overlay">
 
                             <div class="digicam-screen">
-                                <div class="w-100 h-100 bg-secondary position-relative overflow-hidden d-flex align-items-center justify-content-center shadow-inner"
-                                    style="background-color: #111;">
-                                    <img src="your-image-here.jpg" class="w-100 h-100 object-fit-cover" alt="">
-                                    <div class="position-absolute d-flex align-items-center justify-content-center text-white-50 font-mono text-center p-2 text-uppercase"
-                                        style="background: rgba(255,255,255,0.1); font-size: 7px; inset: 0;">
+                                <div class="w-100 h-100 position-relative overflow-hidden flex-center"
+                                    style="background-color: #111; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);">
+                                    <img src="your-image-here.jpg" class="w-100 h-100" style="object-fit: cover;"
+                                        alt="">
+                                    <div class="position-absolute flex-center text-center font-mono"
+                                        style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 7px; inset: 0; text-transform: uppercase;">
                                         Insert<br>Photo
                                     </div>
                                 </div>
 
-                                <div class="position-absolute p-2 d-flex flex-column justify-content-between pointer-events-none"
-                                    style="inset: 0; z-index: 20;">
-                                    <div class="d-flex justify-content-between align-items-start">
-                                        <span
-                                            class="font-mono text-success bg-black-50 px-1 border border-success border-opacity-25"
-                                            style="font-size: 6px;">AUTO</span>
-                                        <span class="font-mono text-white" style="font-size: 6px;">4:3</span>
+                                <div class="position-absolute flex-between flex-column"
+                                    style="inset: 0; padding: 8px; pointer-events: none; z-index: 20;">
+                                    <div class="flex-between w-100" style="align-items: flex-start;">
+                                        <span class="font-mono"
+                                            style="color: #28a745; background: rgba(0,0,0,0.5); padding: 0 4px; font-size: 6px; border: 1px solid rgba(40,167,69,0.2);">AUTO</span>
+                                        <span class="font-mono" style="color: white; font-size: 6px;">4:3</span>
                                     </div>
-                                    <div class="d-flex justify-content-end align-items-end gap-1">
-                                        <div class="rounded-circle bg-danger"
-                                            style="width: 4px; height: 4px; animation: pulse 2s infinite;"></div>
-                                        <span class="font-mono text-brand-orange fw-bold text-uppercase"
-                                            style="font-size: 8px;">DEC 25 2025</span>
+                                    <div class="w-100"
+                                        style="display: flex; justify-content: flex-end; align-items: flex-end; gap: 4px;">
+                                        <div
+                                            style="width: 4px; height: 4px; background-color: var(--brand-red); border-radius: 50%; opacity: 1;">
+                                        </div>
+                                        <span class="font-mono font-bold"
+                                            style="color: var(--brand-orange); font-size: 8px; text-transform: uppercase;">DEC
+                                            25 2025</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="position-absolute bg-warning-subtle px-4 py-2 shadow z-3 border-start border-4 border-pink-subtle"
-                            style="bottom: -1.5rem; right: 1rem; transform: rotate(3deg);">
-                            <p class="font-hand text-dark mb-0 fs-5">captured on cam!</p>
+                        <div class="position-absolute"
+                            style="bottom: -1.5rem; right: 1rem; transform: rotate(3deg); background-color: #fff3cd; padding: 8px 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 4px solid #f8d7da; z-index: 3;">
+                            <p class="font-hand" style="color: #343a40; margin: 0; font-size: 1.25rem;">captured on cam!
+                            </p>
                         </div>
                     </div>
                 </section>
@@ -150,28 +151,28 @@
 
                     <!-- Memory 2: Laminated Photo -->
                     <div class="position-relative w-100" style="max-width: 24rem;">
-                        <div class="laminated w-100 ratio ratio-1x1 bg-light position-relative"
-                            style="transform: rotate(1deg);">
-                            <div class="w-100 h-100 d-flex align-items-center justify-content-center text-secondary">
-                                Insert Photo 2</div>
+                        <div class="laminated w-100 position-relative"
+                            style="aspect-ratio: 1/1; background-color: #f8f9fa; transform: rotate(1deg);">
+                            <div class="w-100 h-100 flex-center" style="color: #6c757d;">Insert Photo 2</div>
 
-                            <div class="position-absolute p-3 d-flex flex-column justify-content-between pointer-events-none opacity-75"
-                                style="inset: 0;">
-                                <div class="d-flex justify-content-between">
-                                    <span class="font-mono text-white bg-black-50 px-1 text-uppercase"
-                                        style="font-size: 10px;">RAW</span>
+                            <div class="position-absolute flex-between flex-column"
+                                style="inset: 0; padding: 16px; pointer-events: none; opacity: 0.8;">
+                                <div class="flex-between w-100">
+                                    <span class="font-mono"
+                                        style="color: white; background: rgba(0,0,0,0.5); padding: 0 4px; font-size: 10px; text-transform: uppercase;">RAW</span>
                                 </div>
-                                <div class="d-flex justify-content-between align-items-end">
-                                    <i data-lucide="battery-charging" class="text-white drop-shadow"
-                                        style="width: 16px; height: 16px;"></i>
-                                    <span
-                                        class="font-mono text-brand-orange fw-bold drop-shadow text-uppercase small">JAN
+                                <div class="flex-between w-100" style="align-items: flex-end;">
+                                    <i data-lucide="battery-charging"
+                                        style="color: white; width: 16px; height: 16px; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));"></i>
+                                    <span class="font-mono font-bold"
+                                        style="color: var(--brand-orange); font-size: 0.875rem; text-transform: uppercase; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));">JAN
                                         01 2026</span>
                                 </div>
                             </div>
                         </div>
                         <div class="position-absolute" style="bottom: -2rem; left: -0.5rem; transform: rotate(-2deg);">
-                            <p class="font-hand text-dark fs-5 mb-0">you're so cute!</p>
+                            <p class="font-hand" style="color: #343a40; font-size: 1.25rem; margin: 0;">you're so cute!
+                            </p>
                         </div>
                     </div>
                 </section>
@@ -180,24 +181,29 @@
                 <section class="snap-section sec-scrapbook-3 sec-center-content">
 
                     <!-- Memory 3: Grid -->
-                    <div class="position-relative w-100 d-flex flex-column gap-4" style="max-width: 24rem;">
-                        <div class="text-center font-hand text-secondary fs-3">random moments...</div>
-                        <div class="row g-3 row-cols-2">
-                            <div class="col">
-                                <div class="laminated ratio ratio-1x1 bg-white bg-opacity-50 border border-2 border-white border-opacity-25"
-                                    style="transform: rotate(-2deg);"></div>
+                    <div class="position-relative w-100 flex-column" style="gap: 24px; max-width: 24rem;">
+                        <div class="text-center font-hand" style="color: #6c757d; font-size: 1.5rem;">random moments...
+                        </div>
+                        <div class="grid-2-col">
+                            <div>
+                                <div class="laminated"
+                                    style="aspect-ratio: 1/1; background-color: rgba(255,255,255,0.5); border: 2px solid rgba(255,255,255,0.3); transform: rotate(-2deg);">
+                                </div>
                             </div>
-                            <div class="col">
-                                <div class="laminated ratio ratio-1x1 bg-white bg-opacity-50 border border-2 border-white border-opacity-25 mt-3"
-                                    style="transform: rotate(3deg);"></div>
+                            <div>
+                                <div class="laminated"
+                                    style="aspect-ratio: 1/1; background-color: rgba(255,255,255,0.5); border: 2px solid rgba(255,255,255,0.3); margin-top: 16px; transform: rotate(3deg);">
+                                </div>
                             </div>
-                            <div class="col">
-                                <div class="laminated ratio ratio-1x1 bg-white bg-opacity-50 border border-2 border-white border-opacity-25"
-                                    style="transform: rotate(1deg);"></div>
+                            <div>
+                                <div class="laminated"
+                                    style="aspect-ratio: 1/1; background-color: rgba(255,255,255,0.5); border: 2px solid rgba(255,255,255,0.3); transform: rotate(1deg);">
+                                </div>
                             </div>
-                            <div class="col">
-                                <div class="laminated ratio ratio-1x1 bg-white bg-opacity-50 border border-2 border-white border-opacity-25 mt-4"
-                                    style="transform: rotate(-1deg);"></div>
+                            <div>
+                                <div class="laminated"
+                                    style="aspect-ratio: 1/1; background-color: rgba(255,255,255,0.5); border: 2px solid rgba(255,255,255,0.3); margin-top: 24px; transform: rotate(-1deg);">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -206,14 +212,15 @@
                 <!-- Section 6: The Farewell -->
                 <section class="snap-section sec-farewell sec-center-content">
                     <div class="text-center">
-                        <p class="font-hand text-danger display-4 mb-2" style="color: #e83e8c;">I LOVE YOUUU</p>
-                        <div class="d-flex justify-content-center gap-3 h1">
+                        <p class="font-hand mb-20"
+                            style="color: var(--color-counter-3); font-size: 3rem; margin-bottom: 8px;">I LOVE YOUUU</p>
+                        <div class="flex-center" style="gap: 16px; font-size: 2.5rem;">
                             <span>🫶🫶🫶</span>
                         </div>
                     </div>
 
-                    <div class="position-absolute w-100 text-center" style="bottom: 2.5rem;">
-                        <p class="font-hand fs-5 text-black-50">forever & ever</p>
+                    <div class="position-absolute w-100 text-center" style="bottom: 40px;">
+                        <p class="font-hand" style="font-size: 1.25rem; color: #adb5bd;">forever & ever</p>
                     </div>
                 </section>
 
@@ -226,9 +233,6 @@
 
         </main> <!-- End Inner Screen -->
     </div> <!-- End Frame Wrapper -->
-
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         // Initialize Lucide Icons
