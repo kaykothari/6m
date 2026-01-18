@@ -26,6 +26,12 @@
     --light-gray: #f8f9fa;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
     margin: 0;
@@ -258,7 +264,7 @@ body {
     letter-spacing: -0.05em;
     width: 100%;
     font-size: 18vw;
-    padding: 0 8px;
+    padding: 0 16px;
     box-sizing: border-box;
 }
 
