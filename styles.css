@@ -1,0 +1,362 @@
+:root {
+    /* Fonts */
+    --font-sans: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-hand: "Gloria Hallelujah", cursive;
+    --font-mono: "Share Tech Mono", monospace;
+
+    /* Brand Colors */
+    --brand-red: #FF4444;
+    --brand-orange: #FFA500;
+    
+    /* Counter Gradient Colors */
+    --color-counter-1: #C2185B;
+    --color-counter-2: #D81B60;
+    --color-counter-3: #E91E63;
+    --color-counter-4: #F06292;
+    --color-counter-5: #F48FB1;
+    --color-counter-6: #F8BBD0;
+    --color-bbg: #FBCFE8;
+
+    /* Backgrounds */
+    --bg-greeting: #FFF5F7;
+    --bg-chat: #ffffff;
+    --bg-scrapbook-1: #E0F7FA;
+    --bg-scrapbook-2: #F3E5F5;
+    --bg-scrapbook-3: #E8F5E9;
+    --bg-farewell: #FFF9C4;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e5e7eb; /* tailwind gray-200 */
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-family: var(--font-sans);
+}
+
+@media (min-width: 768px) {
+    body {
+        zoom: 0.9;
+        padding: 2.5rem; /* p-10 equivalent */
+    }
+}
+
+/* Utilities */
+.font-hand { font-family: var(--font-hand); }
+.font-mono { font-family: var(--font-mono); }
+.text-brand-orange { color: var(--brand-orange); }
+.bg-black-50 { background-color: rgba(0, 0, 0, 0.5); }
+
+/* Phone Frame */
+.phone-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .phone-wrapper {
+        width: 424px;
+        height: 850px;
+    }
+}
+
+.phone-frame-img {
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 50;
+    filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+}
+
+@media (min-width: 768px) {
+    .phone-frame-img {
+        display: block;
+    }
+}
+
+.inner-screen {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .inner-screen {
+        width: 88%;
+        height: 94%;
+        border-radius: 50px;
+    }
+}
+
+.status-bar {
+    display: none; /* Hidden on mobile by default in original code? No, hidden md:flex means hidden on mobile. */
+    width: 100%;
+    height: 46px;
+    background-color: white;
+    flex-shrink: 0;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    z-index: 100;
+    color: black;
+}
+
+@media (min-width: 768px) {
+    .status-bar {
+        display: flex;
+    }
+}
+
+/* Scrollable Area */
+.content-area {
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    position: relative;
+    background-color: var(--bg-greeting);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+.content-area::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* Sections */
+.snap-section {
+    height: 100%;
+    width: 100%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Section 1: Greeting */
+.sec-greeting {
+    background-color: var(--bg-greeting);
+    padding-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.counter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-weight: 800; /* extrabold */
+    line-height: 0.8;
+    letter-spacing: -0.05em; /* tighter */
+    width: 100%;
+    font-size: 18vw;
+}
+
+@media (min-width: 768px) {
+    .counter-container {
+        font-size: 60px;
+    }
+}
+
+.counter-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.text-happy { font-size: 28vw; color: var(--color-counter-1); font-weight: 900; }
+@media (min-width: 768px) { .text-happy { font-size: 85px; } }
+
+.text-months { color: var(--color-counter-2); }
+.text-days { color: var(--color-counter-3); }
+.text-hours { color: var(--color-counter-4); }
+.text-minutes { color: var(--color-counter-5); }
+.text-seconds { color: var(--color-counter-6); }
+
+.text-bbg {
+    position: relative;
+    z-index: 20;
+    color: var(--color-bbg);
+    font-size: 24vw;
+    font-weight: 900;
+    pointer-events: none;
+    filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));
+}
+@media (min-width: 768px) { .text-bbg { font-size: 85px; } }
+
+/* Section 2: Chat */
+.sec-chat {
+    background-color: var(--bg-chat);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chat-header, .chat-footer {
+    width: 100%;
+    z-index: 20;
+}
+.chat-footer img, .chat-header img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.chat-middle {
+    flex: 1;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: flex-end; /* Bottom align as requested */
+    justify-content: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.chat-overlay-text {
+    position: absolute;
+    top: 1.5rem; /* top-6 */
+    left: 0;
+    width: 100%;
+    z-index: 30;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    padding-left: 2.5rem; /* px-10 */
+    padding-right: 2.5rem;
+}
+
+.chat-overlay-text p {
+    font-size: 1.5rem; /* text-2xl */
+    color: black;
+    filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));
+    transform: rotate(-2deg);
+    margin: 0;
+}
+
+/* Section 3, 4, 5: Scrapbooks */
+.sec-scrapbook-1 { background-color: var(--bg-scrapbook-1); }
+.sec-scrapbook-2 { background-color: var(--bg-scrapbook-2); }
+.sec-scrapbook-3 { background-color: var(--bg-scrapbook-3); }
+
+.sec-center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.digicam-entry {
+    position: relative;
+    width: 100%;
+    max-width: 24rem; /* max-w-sm */
+    display: flex;
+    justify-content: center;
+}
+
+.digicam-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.digicam-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.digicam-screen {
+    width: 66%;
+    height: 73%;
+    background-color: black;
+    position: absolute;
+    overflow: hidden;
+    left: 5.5%;
+    top: 13.5%;
+    z-index: 0;
+    border-radius: 2px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Laminated Photo */
+.laminated {
+    border: 3px solid white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.laminated::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.4) 0%,
+            rgba(255, 255, 255, 0) 40%,
+            rgba(255, 255, 255, 0) 60%,
+            rgba(255, 255, 255, 0.1) 100%);
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Section 6: Farewell */
+.sec-farewell {
+    background-color: var(--bg-farewell);
+}
+
+.home-indicator {
+    display: none;
+    width: 100%;
+    height: 25px;
+    background-color: white;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+@media (min-width: 768px) {
+    .home-indicator {
+        display: flex;
+    }
+}
+.home-indicator-bar {
+    width: 33.333%;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 9999px;
+}
