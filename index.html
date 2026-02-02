@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Happy Anniversary</title>
 
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +19,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body>
+<body class="flex-column flex-center">
 
     <!-- Desktop: iPhone Frame Wrapper -->
     <div class="phone-wrapper">
@@ -33,8 +32,7 @@
 
             <!-- Safe Area / Status Bar -->
             <header class="status-bar">
-                <span id="status-time" class="font-bold"
-                    style="font-size: 15px; letter-spacing: 0.05em; user-select: none;">9:41</span>
+                <span class="font-bold" style="font-size: 15px; letter-spacing: 0.05em; user-select: none;">9:41</span>
             </header>
 
             <!-- Scrollable Content Area -->
@@ -42,7 +40,7 @@
 
                 <!-- Section 1: The Greeting -->
                 <section class="snap-section sec-greeting" data-bg="var(--bg-greeting)">
-                    <div class="flex-column w-100 position-relative z-1">
+                    <div class="flex-column w-100 position-relative" style="z-index: 1;">
                         <div id="counter" class="counter-container">
                             <div class="text-happy">HAPPY</div>
                             <div class="counter-row text-months">
@@ -60,15 +58,17 @@
                             <div class="counter-row text-seconds">
                                 <span id="seconds">0</span> <span id="seconds-label">seconds</span>
                             </div>
-                            <div class="position-relative w-100 h-0 z-20 overflow-visible">
+                            <div class="position-relative w-100" style="height: 0; z-index: 20; overflow: visible;">
                                 <div class="text-bbg">BBG</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Memory Image -->
-                    <div class="memory-image-wrapper">
-                        <img src="assets/img/Colorised.png" alt="Memory" class="memory-img">
+                    <div class="w-100"
+                        style="margin-top: auto; flex: 1; display: flex; justify-content: flex-end; align-items: flex-end; position: relative; padding-top: 24px; overflow: hidden;">
+                        <img src="assets/img/Colorised.png" alt="Memory"
+                            style="max-width: 100%; max-height: 100%; object-fit: contain;">
                     </div>
                 </section>
 
@@ -105,11 +105,14 @@
 
                     <!-- Memory 1: Simple Laminated Photo -->
                     <div class="position-relative w-100" style="max-width: 24rem;">
-                        <div class="laminated w-100 position-relative laminated-bg-gray rotate-n1">
-                            <div class="w-100 h-100 flex-center text-gray-muted">Insert Photo 1</div>
+                        <div class="laminated w-100 position-relative"
+                            style="aspect-ratio: 1/1; background-color: #f8f9fa; transform: rotate(-1deg);">
+                            <div class="w-100 h-100 flex-center" style="color: #6c757d;">Insert Photo 1</div>
                         </div>
-                        <div class="sticker">
-                            <p class="font-hand">captured on cam!</p>
+                        <div class="position-absolute"
+                            style="bottom: -1.5rem; right: 1rem; transform: rotate(3deg); background-color: #fff3cd; padding: 8px 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 4px solid #f8d7da; z-index: 3;">
+                            <p class="font-hand" style="color: #343a40; margin: 0; font-size: 1.25rem;">captured on cam!
+                            </p>
                         </div>
                     </div>
                 </section>
@@ -119,13 +122,15 @@
 
                     <!-- Memory 2: Laminated Photo -->
                     <div class="position-relative w-100" style="max-width: 24rem;">
-                        <div class="laminated w-100 position-relative laminated-bg-gray rotate-1">
-                            <div class="w-100 h-100 flex-center text-gray-muted">Insert Photo 2</div>
+                        <div class="laminated w-100 position-relative"
+                            style="aspect-ratio: 1/1; background-color: #f8f9fa; transform: rotate(1deg);">
+                            <div class="w-100 h-100 flex-center" style="color: #6c757d;">Insert Photo 2</div>
 
 
                         </div>
-                        <div class="sticker sticker-alt">
-                            <p class="font-hand">you're so cute!</p>
+                        <div class="position-absolute" style="bottom: -2rem; left: -0.5rem; transform: rotate(-2deg);">
+                            <p class="font-hand" style="color: #343a40; font-size: 1.25rem; margin: 0;">you're so cute!
+                            </p>
                         </div>
                     </div>
                 </section>
@@ -139,21 +144,23 @@
                         </div>
                         <div class="grid-2-col">
                             <div>
-                                <div class="laminated laminated-bg-white-50 rotate-n2" style="aspect-ratio: 1/1;">
+                                <div class="laminated"
+                                    style="aspect-ratio: 1/1; background-color: rgba(255,255,255,0.5); border: 2px solid rgba(255,255,255,0.3); transform: rotate(-2deg);">
                                 </div>
                             </div>
                             <div>
-                                <div class="laminated laminated-bg-white-50 rotate-3"
-                                    style="aspect-ratio: 1/1; margin-top: 16px;">
+                                <div class="laminated"
+                                    style="aspect-ratio: 1/1; background-color: rgba(255,255,255,0.5); border: 2px solid rgba(255,255,255,0.3); margin-top: 16px; transform: rotate(3deg);">
                                 </div>
                             </div>
                             <div>
-                                <div class="laminated laminated-bg-white-50 rotate-1" style="aspect-ratio: 1/1;">
+                                <div class="laminated"
+                                    style="aspect-ratio: 1/1; background-color: rgba(255,255,255,0.5); border: 2px solid rgba(255,255,255,0.3); transform: rotate(1deg);">
                                 </div>
                             </div>
                             <div>
-                                <div class="laminated laminated-bg-white-50 rotate-n1"
-                                    style="aspect-ratio: 1/1; margin-top: 24px;">
+                                <div class="laminated"
+                                    style="aspect-ratio: 1/1; background-color: rgba(255,255,255,0.5); border: 2px solid rgba(255,255,255,0.3); margin-top: 24px; transform: rotate(-1deg);">
                                 </div>
                             </div>
                         </div>
@@ -163,15 +170,16 @@
                 <!-- Section 6: The Farewell -->
                 <section class="snap-section sec-farewell sec-center-content" data-bg="var(--bg-farewell)">
                     <div class="text-center">
-                        <p class="font-hand farewell-text">I LOVE
+                        <p class="font-hand"
+                            style="color: var(--color-counter-3); font-size: 3rem; line-height: 1.1; margin: 0;">I LOVE
                             YOUUU</p>
                         <div class="flex-center mt-20" style="gap: 16px; font-size: 2.5rem;">
                             <span>🫶🫶🫶</span>
                         </div>
                     </div>
 
-                    <div class="position-absolute w-100 text-center farewell-footer">
-                        <p class="font-hand farewell-sub">forever & ever</p>
+                    <div class="position-absolute w-100 text-center" style="bottom: 40px;">
+                        <p class="font-hand" style="font-size: 1.25rem; color: #adb5bd;">forever & ever</p>
                     </div>
                 </section>
 
@@ -244,21 +252,7 @@
 
         // Run immediately and then every second
         updateCounter();
-
-        // System Time Logic
-        function updateSystemTime() {
-            const now = new Date();
-            let hours = now.getHours();
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            hours = hours % 12 || 12; // Convert 0 to 12 and handle 12-hour format
-            document.getElementById('status-time').textContent = `${hours}:${minutes}`;
-        }
-        updateSystemTime();
-
-        setInterval(() => {
-            updateCounter();
-            updateSystemTime();
-        }, 1000);
+        setInterval(updateCounter, 1000);
 
         // Restart GIF on section enter
         const chatSection = document.getElementById('section-chat');
