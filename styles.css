@@ -184,7 +184,7 @@ body {
 /* Status Bar */
 
 .status-bar {
-    display: flex;
+    display: none;
     width: 100%;
     height: 46px;
     background-color: var(--white);
@@ -200,7 +200,11 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/* removed duplicate status-bar media query as it's now global */
+@media (min-width: 768px) {
+    .status-bar {
+        display: flex;
+    }
+}
 
 
 /* Content Area */
