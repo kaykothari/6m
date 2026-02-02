@@ -198,6 +198,26 @@
         // Initialize Lucide Icons
         lucide.createIcons();
 
+        // Realtime Clock for Status Bar
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+
+            // Convert to 12h format
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+
+            const timeString = `${hours}:${minutes}`;
+            const clockEl = document.getElementById('status-time');
+            if (clockEl) {
+                clockEl.textContent = timeString;
+            }
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000); // Update every second for accuracy
+
         // Counter Logic
         function updateCounter() {
             const now = new Date();

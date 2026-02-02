@@ -184,12 +184,13 @@ body {
 /* Status Bar */
 
 .status-bar {
-    display: none;
+    display: none !important;
     width: 100%;
     height: 46px;
     background-color: var(--white);
     flex-shrink: 0;
-    align-items: flex-end;
+    align-items: center;
+    /* better vertical alignment */
     justify-content: space-between;
     padding-bottom: 0px;
     padding-left: 32px;
@@ -202,7 +203,7 @@ body {
 
 @media (min-width: 768px) {
     .status-bar {
-        display: flex;
+        display: flex !important;
     }
 }
 
