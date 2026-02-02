@@ -248,7 +248,7 @@ body {
 
 .sec-greeting {
     background-color: var(--bg-greeting);
-    padding-top: 8px;
+    padding-top: 0px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -264,7 +264,7 @@ body {
     letter-spacing: -0.05em;
     width: 100%;
     font-size: 18vw;
-    padding: 0 16px;
+    padding: 16px 16px 0px 16px;
     box-sizing: border-box;
 }
 
