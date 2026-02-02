@@ -39,7 +39,7 @@
             <div class="content-area">
 
                 <!-- Section 1: The Greeting -->
-                <section class="snap-section sec-greeting">
+                <section class="snap-section sec-greeting" data-bg="var(--bg-greeting)">
                     <div class="flex-column w-100 position-relative" style="z-index: 1;">
                         <div id="counter" class="counter-container">
                             <div class="text-happy">HAPPY</div>
@@ -73,7 +73,7 @@
                 </section>
 
                 <!-- Section 2: The Beginning (The Chat) -->
-                <section id="section-chat" class="snap-section sec-chat">
+                <section id="section-chat" class="snap-section sec-chat" data-bg="var(--bg-chat-header)">
 
                     <!-- Top Header -->
                     <header class="chat-header">
@@ -98,45 +98,16 @@
                 </section>
 
                 <!-- Section 3: The Scrapbook - Part 1 -->
-                <section class="snap-section sec-scrapbook-1 sec-center-content">
+                <section class="snap-section sec-scrapbook-1 sec-center-content" data-bg="var(--bg-scrapbook-1)">
                     <div class="w-100 text-center mb-20">
                         <h2 class="font-hand" style="font-size: 2.5rem; color: black; margin: 0;">our digital diary</h2>
                     </div>
 
-                    <!-- Memory 1: Digicam -->
-                    <div class="digicam-entry">
-                        <div class="digicam-frame">
-                            <img src="assets/img/digicam.png" alt="Digicam" class="digicam-overlay">
-
-                            <div class="digicam-screen">
-                                <div class="w-100 h-100 position-relative overflow-hidden flex-center"
-                                    style="background-color: #111; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);">
-                                    <img src="your-image-here.jpg" class="w-100 h-100" style="object-fit: cover;"
-                                        alt="">
-                                    <div class="position-absolute flex-center text-center font-mono"
-                                        style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 7px; inset: 0; text-transform: uppercase;">
-                                        Insert<br>Photo
-                                    </div>
-                                </div>
-
-                                <div class="position-absolute flex-between flex-column"
-                                    style="inset: 0; padding: 8px; pointer-events: none; z-index: 20;">
-                                    <div class="flex-between w-100" style="align-items: flex-start;">
-                                        <span class="font-mono"
-                                            style="color: #28a745; background: rgba(0,0,0,0.5); padding: 0 4px; font-size: 6px; border: 1px solid rgba(40,167,69,0.2);">AUTO</span>
-                                        <span class="font-mono" style="color: white; font-size: 6px;">4:3</span>
-                                    </div>
-                                    <div class="w-100"
-                                        style="display: flex; justify-content: flex-end; align-items: flex-end; gap: 4px;">
-                                        <div
-                                            style="width: 4px; height: 4px; background-color: var(--brand-red); border-radius: 50%; opacity: 1;">
-                                        </div>
-                                        <span class="font-mono font-bold"
-                                            style="color: var(--brand-orange); font-size: 8px; text-transform: uppercase;">DEC
-                                            25 2025</span>
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- Memory 1: Simple Laminated Photo -->
+                    <div class="position-relative w-100" style="max-width: 24rem;">
+                        <div class="laminated w-100 position-relative"
+                            style="aspect-ratio: 1/1; background-color: #f8f9fa; transform: rotate(-1deg);">
+                            <div class="w-100 h-100 flex-center" style="color: #6c757d;">Insert Photo 1</div>
                         </div>
                         <div class="position-absolute"
                             style="bottom: -1.5rem; right: 1rem; transform: rotate(3deg); background-color: #fff3cd; padding: 8px 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 4px solid #f8d7da; z-index: 3;">
@@ -147,7 +118,7 @@
                 </section>
 
                 <!-- Section 4: The Scrapbook - Part 2 -->
-                <section class="snap-section sec-scrapbook-2 sec-center-content">
+                <section class="snap-section sec-scrapbook-2 sec-center-content" data-bg="var(--bg-scrapbook-2)">
 
                     <!-- Memory 2: Laminated Photo -->
                     <div class="position-relative w-100" style="max-width: 24rem;">
@@ -155,20 +126,7 @@
                             style="aspect-ratio: 1/1; background-color: #f8f9fa; transform: rotate(1deg);">
                             <div class="w-100 h-100 flex-center" style="color: #6c757d;">Insert Photo 2</div>
 
-                            <div class="position-absolute flex-between flex-column"
-                                style="inset: 0; padding: 16px; pointer-events: none; opacity: 0.8;">
-                                <div class="flex-between w-100">
-                                    <span class="font-mono"
-                                        style="color: white; background: rgba(0,0,0,0.5); padding: 0 4px; font-size: 10px; text-transform: uppercase;">RAW</span>
-                                </div>
-                                <div class="flex-between w-100" style="align-items: flex-end;">
-                                    <i data-lucide="battery-charging"
-                                        style="color: white; width: 16px; height: 16px; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));"></i>
-                                    <span class="font-mono font-bold"
-                                        style="color: var(--brand-orange); font-size: 0.875rem; text-transform: uppercase; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));">JAN
-                                        01 2026</span>
-                                </div>
-                            </div>
+
                         </div>
                         <div class="position-absolute" style="bottom: -2rem; left: -0.5rem; transform: rotate(-2deg);">
                             <p class="font-hand" style="color: #343a40; font-size: 1.25rem; margin: 0;">you're so cute!
@@ -178,7 +136,7 @@
                 </section>
 
                 <!-- Section 5: The Scrapbook - Part 3 -->
-                <section class="snap-section sec-scrapbook-3 sec-center-content">
+                <section class="snap-section sec-scrapbook-3 sec-center-content" data-bg="var(--bg-scrapbook-3)">
 
                     <!-- Memory 3: Grid -->
                     <div class="position-relative w-100 flex-column" style="gap: 24px; max-width: 24rem;">
@@ -210,7 +168,7 @@
                 </section>
 
                 <!-- Section 6: The Farewell -->
-                <section class="snap-section sec-farewell sec-center-content">
+                <section class="snap-section sec-farewell sec-center-content" data-bg="var(--bg-farewell)">
                     <div class="text-center">
                         <p class="font-hand"
                             style="color: var(--color-counter-3); font-size: 3rem; line-height: 1.1; margin: 0;">I LOVE
@@ -310,7 +268,28 @@
             });
         }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
 
+
         observer.observe(chatSection);
+
+        // Status Bar Color Observer
+        const statusBar = document.querySelector('.status-bar');
+        const sections = document.querySelectorAll('.snap-section');
+
+        const colorObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bgColor = entry.target.getAttribute('data-bg');
+                    if (bgColor) {
+                        statusBar.style.backgroundColor = bgColor;
+                    }
+                }
+            });
+        }, {
+            threshold: 0.5,
+            root: document.querySelector('.content-area')
+        });
+
+        sections.forEach(section => colorObserver.observe(section));
     </script>
 </body>
 

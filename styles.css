@@ -16,6 +16,7 @@
 
     --bg-greeting: #FFF5F7;
     --bg-chat: #ffffff;
+    --bg-chat-header: #f6f5f6;
     --bg-scrapbook-1: #E0F7FA;
     --bg-scrapbook-2: #F3E5F5;
     --bg-scrapbook-3: #E8F5E9;
@@ -46,7 +47,7 @@ body {
 @media (min-width: 768px) {
     body {
         zoom: 0.9;
-        padding: 40px;
+        padding: 0;
     }
 }
 
@@ -174,7 +175,7 @@ body {
 @media (min-width: 768px) {
     .inner-screen {
         width: 88%;
-        height: 94%;
+        height: 95%;
         border-radius: 50px;
     }
 }
@@ -183,26 +184,23 @@ body {
 /* Status Bar */
 
 .status-bar {
-    display: none;
+    display: flex;
     width: 100%;
     height: 46px;
     background-color: var(--white);
     flex-shrink: 0;
     align-items: flex-end;
     justify-content: space-between;
-    padding-bottom: 8px;
+    padding-bottom: 0px;
     padding-left: 32px;
     padding-right: 32px;
     z-index: 100;
     color: black;
     box-sizing: border-box;
+    transition: background-color 0.3s ease;
 }
 
-@media (min-width: 768px) {
-    .status-bar {
-        display: flex;
-    }
-}
+/* removed duplicate status-bar media query as it's now global */
 
 
 /* Content Area */
@@ -264,7 +262,7 @@ body {
     letter-spacing: -0.05em;
     width: 100%;
     font-size: 18vw;
-    padding: 16px 16px 0px 16px;
+    padding: 8px 8px 0px 8px;
     box-sizing: border-box;
 }
 
@@ -339,6 +337,10 @@ body {
     justify-content: space-between;
 }
 
+.chat-header {
+    background-color: var(--bg-chat-header);
+}
+
 .chat-header img,
 .chat-footer img {
     width: 100%;
@@ -398,49 +400,7 @@ body {
     background-color: var(--bg-farewell);
 }
 
-.digicam-entry {
-    position: relative;
-    width: 100%;
-    max-width: 24rem;
-    display: flex;
-    justify-content: center;
-}
 
-.digicam-frame {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4/3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.digicam-overlay {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    z-index: 10;
-    pointer-events: none;
-}
-
-.digicam-screen {
-    width: 66%;
-    height: 73%;
-    background-color: black;
-    position: absolute;
-    overflow: hidden;
-    left: 5.5%;
-    top: 13.5%;
-    z-index: 0;
-    border-radius: 2px;
-    padding: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-}
 
 
 /* Laminated Photo */
