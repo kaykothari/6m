@@ -36,16 +36,15 @@
 html,
 body {
     height: 100%;
-    height: calc(var(--vh, 1vh) * 100);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 body {
     font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #e5e7eb;
     color: var(--dark-text);
-    overflow: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -143,7 +142,7 @@ h2.font-hand {
     font-size: 1.75rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     h2.font-hand {
         font-size: 2.25rem;
     }
@@ -161,17 +160,19 @@ h2.font-hand {
 /* Phone Frame Component */
 
 .phone-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    position: fixed;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    z-index: 10;
 }
 
 @media (min-width: 1024px) {
     .phone-wrapper {
+        position: relative;
+        inset: auto;
         width: 424px;
         height: 850px;
     }
@@ -246,7 +247,8 @@ h2.font-hand {
 
 .content-area {
     width: 100%;
-    flex: 1;
+    height: 100%;
+    height: calc(var(--vh, 1vh) * 100);
     overflow-y: auto;
     scroll-snap-type: y mandatory;
     position: relative;
@@ -254,6 +256,8 @@ h2.font-hand {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .content-area::-webkit-scrollbar {
@@ -264,10 +268,12 @@ h2.font-hand {
 /* Sections */
 
 .snap-section {
-    height: 100%;
+    min-height: 100%;
+    min-height: calc(var(--vh, 1vh) * 100);
     width: 100%;
     flex-shrink: 0;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
     overflow: hidden;
     position: relative;
 }
@@ -305,7 +311,7 @@ h2.font-hand {
     box-sizing: border-box;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .counter-container {
         font-size: 60px;
     }
@@ -323,7 +329,7 @@ h2.font-hand {
     font-weight: 900;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .text-happy {
         font-size: 85px;
     }
@@ -360,7 +366,7 @@ h2.font-hand {
     width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .text-bbg {
         font-size: 85px;
     }
