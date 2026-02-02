@@ -27,6 +27,30 @@
     --light-gray: #f8f9fa;
 }
 
+/* Base Visibility Fixes */
+.status-bar {
+    display: none !important;
+    width: 100%;
+    height: 46px;
+    background-color: var(--white);
+    flex-shrink: 0;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 0px;
+    padding-left: 32px;
+    padding-right: 32px;
+    z-index: 100;
+    color: black;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+    .status-bar {
+        display: flex !important;
+    }
+}
+
 *,
 *::before,
 *::after {
@@ -39,6 +63,9 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    /* Use dynamic viewport height if possible */
+    height: 100vh;
+    height: 100dvh;
 }
 
 body {
@@ -46,6 +73,8 @@ body {
     background-color: #e5e7eb;
     color: var(--dark-text);
     -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
 }
 
 @media (min-width: 1024px) {
@@ -55,6 +84,8 @@ body {
         zoom: 0.9;
         padding: 50px 0;
         overflow-y: auto;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -160,19 +191,17 @@ h2.font-hand {
 /* Phone Frame Component */
 
 .phone-wrapper {
-    position: fixed;
-    inset: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    z-index: 10;
 }
 
 @media (min-width: 1024px) {
     .phone-wrapper {
-        position: relative;
-        inset: auto;
         width: 424px;
         height: 850px;
     }
@@ -199,7 +228,6 @@ h2.font-hand {
 .inner-screen {
     width: 100%;
     height: 100%;
-    height: calc(var(--vh, 1vh) * 100);
     background-color: var(--white);
     position: relative;
     overflow: hidden;
@@ -219,36 +247,14 @@ h2.font-hand {
 
 /* Status Bar */
 
-.status-bar {
-    display: none !important;
-    width: 100%;
-    height: 46px;
-    background-color: var(--white);
-    flex-shrink: 0;
-    align-items: flex-end;
-    justify-content: space-between;
-    padding-bottom: 0px;
-    padding-left: 32px;
-    padding-right: 32px;
-    z-index: 100;
-    color: black;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease;
-}
-
-@media (min-width: 1024px) {
-    .status-bar {
-        display: flex !important;
-    }
-}
+/* removed duplicate status-bar media query as it's now global */
 
 
 /* Content Area */
 
 .content-area {
     width: 100%;
-    height: 100%;
-    height: calc(var(--vh, 1vh) * 100);
+    flex: 1;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
     position: relative;
@@ -256,8 +262,6 @@ h2.font-hand {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    display: flex;
-    flex-direction: column;
 }
 
 .content-area::-webkit-scrollbar {
@@ -268,8 +272,9 @@ h2.font-hand {
 /* Sections */
 
 .snap-section {
-    min-height: 100%;
-    min-height: calc(var(--vh, 1vh) * 100);
+    height: 100%;
+    height: 100vh;
+    height: 100dvh;
     width: 100%;
     flex-shrink: 0;
     scroll-snap-align: start;
@@ -306,7 +311,7 @@ h2.font-hand {
     line-height: 0.8;
     letter-spacing: -0.05em;
     width: 100%;
-    font-size: 18vw;
+    font-size: 15vw;
     padding: 8px 8px 0px 8px;
     box-sizing: border-box;
 }
@@ -324,7 +329,7 @@ h2.font-hand {
 }
 
 .text-happy {
-    font-size: 28vw;
+    font-size: 22vw;
     color: var(--color-counter-1);
     font-weight: 900;
 }
@@ -359,7 +364,7 @@ h2.font-hand {
     position: relative;
     z-index: 20;
     color: var(--color-bbg);
-    font-size: 24vw;
+    font-size: 20vw;
     font-weight: 900;
     pointer-events: none;
     filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
@@ -455,6 +460,7 @@ h2.font-hand {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     position: relative;
     overflow: hidden;
+    aspect-ratio: 1/1;
 }
 
 .laminated::after {
@@ -510,13 +516,12 @@ h2.font-hand {
 
 .memory-image-wrapper {
     width: 100%;
-    margin-top: auto;
     flex: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: flex-end;
     position: relative;
-    padding-top: 24px;
+    padding-top: 10px;
     overflow: hidden;
 }
 
