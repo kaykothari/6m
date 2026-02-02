@@ -189,6 +189,14 @@
         // Initialize Lucide Icons
         lucide.createIcons();
 
+        // Fix mobile viewport height
+        function fixMobileVH() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        window.addEventListener('resize', fixMobileVH);
+        fixMobileVH();
+
         // Counter Logic
         function updateCounter() {
             const now = new Date();
