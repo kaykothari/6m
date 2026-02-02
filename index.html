@@ -33,7 +33,8 @@
 
             <!-- Safe Area / Status Bar -->
             <header class="status-bar">
-                <span class="font-bold" style="font-size: 15px; letter-spacing: 0.05em; user-select: none;">9:41</span>
+                <span id="status-time" class="font-bold"
+                    style="font-size: 15px; letter-spacing: 0.05em; user-select: none;">9:41</span>
             </header>
 
             <!-- Scrollable Content Area -->
@@ -253,7 +254,21 @@
 
         // Run immediately and then every second
         updateCounter();
-        setInterval(updateCounter, 1000);
+
+        // System Time Logic
+        function updateSystemTime() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            hours = hours % 12 || 12; // Convert 0 to 12 and handle 12-hour format
+            document.getElementById('status-time').textContent = `${hours}:${minutes}`;
+        }
+        updateSystemTime();
+
+        setInterval(() => {
+            updateCounter();
+            updateSystemTime();
+        }, 1000);
 
         // Restart GIF on section enter
         const chatSection = document.getElementById('section-chat');
