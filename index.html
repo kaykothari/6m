@@ -32,7 +32,8 @@
 
             <!-- Safe Area / Status Bar -->
             <header class="status-bar">
-                <span class="font-bold" style="font-size: 15px; letter-spacing: 0.05em; user-select: none;">9:41</span>
+                <span id="status-time" class="font-bold"
+                    style="font-size: 15px; letter-spacing: 0.05em; user-select: none;">9:41</span>
             </header>
 
             <!-- Scrollable Content Area -->
@@ -197,6 +198,20 @@
         // Initialize Lucide Icons
         lucide.createIcons();
 
+        // Status Bar Time
+        function updateStatusTime() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+
+            // Convert to 12-hour format
+            hours = hours % 12;
+            hours = hours ? hours : 12; // '0' should be '12'
+
+            const timeString = `${hours}:${minutes}`;
+            document.getElementById('status-time').textContent = timeString;
+        }
+
         // Counter Logic
         function updateCounter() {
             const now = new Date();
@@ -251,8 +266,12 @@
         }
 
         // Run immediately and then every second
+        updateStatusTime();
         updateCounter();
-        setInterval(updateCounter, 1000);
+        setInterval(() => {
+            updateStatusTime();
+            updateCounter();
+        }, 1000);
 
         // Restart GIF on section enter
         const chatSection = document.getElementById('section-chat');
