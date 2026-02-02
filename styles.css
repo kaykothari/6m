@@ -44,7 +44,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     body {
         zoom: 0.9;
         padding: 50px 0;
@@ -162,7 +162,7 @@ h2.font-hand {
     flex-shrink: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .phone-wrapper {
         width: 424px;
         height: 850px;
@@ -181,7 +181,7 @@ h2.font-hand {
     filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .phone-frame-img {
         display: block;
     }
@@ -198,7 +198,7 @@ h2.font-hand {
     flex-direction: column;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .inner-screen {
         width: 88%;
         height: 95%;
@@ -210,7 +210,7 @@ h2.font-hand {
 /* Status Bar */
 
 .status-bar {
-    display: none;
+    display: none !important;
     width: 100%;
     height: 46px;
     background-color: var(--white);
@@ -226,9 +226,9 @@ h2.font-hand {
     transition: background-color 0.3s ease;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .status-bar {
-        display: flex;
+        display: flex !important;
     }
 }
 
@@ -472,7 +472,7 @@ h2.font-hand {
     z-index: 100;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .home-indicator {
         display: flex;
     }
