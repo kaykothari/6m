@@ -39,7 +39,7 @@ body {
     padding: 0;
     background-color: #e5e7eb;
     color: var(--dark-text);
-    height: 100vh;
+    min-height: 100vh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
@@ -47,7 +47,7 @@ body {
 @media (min-width: 768px) {
     body {
         zoom: 0.9;
-        padding: 0;
+        padding: 50px 0;
     }
 }
 
