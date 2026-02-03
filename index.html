@@ -3,7 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <!-- Theme Color for Browser Status Bar -->
+    <meta name="theme-color" content="#ffffff">
+    <!-- iOS Status Bar Style -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Happy Anniversary</title>
 
     <!-- Google Fonts -->
@@ -20,6 +26,9 @@
 </head>
 
 <body class="flex-column flex-center">
+
+    <!-- Forced Status Bar Spacer -->
+    <div id="ios-status-bar-spacer"></div>
 
     <!-- Desktop: iPhone Frame Wrapper -->
     <div class="phone-wrapper">
@@ -83,8 +92,10 @@
 
                     <!-- Middle Chat/GIF Area -->
                     <article class="chat-middle">
-                        <img id="chat-gif" src="assets/img/chat.gif?v=iphone-fix-7" loading="eager" decoding="sync"
-                            class="w-100 h-100" style="height: auto; transform: translateZ(0);" alt="Chat Recording">
+                        <img id="chat-gif"
+                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                            data-src="assets/img/chat.gif" loading="eager" decoding="sync" class="w-100 h-100"
+                            style="height: auto; transform: translateZ(0); opacity: 0;" alt="Chat Recording">
 
                         <!-- The Text Overlay -->
                         <div class="chat-overlay-text">
@@ -239,7 +250,7 @@
                 </section>
 
                 <!-- Slide 8 -->
-                <section class="snap-section sec-center-content" data-bg="var(--bg-slide-8)"
+                <section id="slide-8" class="snap-section sec-center-content" data-bg="var(--bg-slide-8)"
                     style="background-color: var(--bg-slide-8); --note-bg: #FFF3E0; --note-accent: #FFE0B2;">
                     <div class="emoji-background">
                         <span>♾️</span><span>🧸</span><span>🎀</span><span>🎈</span><span>🎁</span><span>🧁</span><span>😘</span><span>😚</span><span>💞</span><span>♾️</span><span>💘</span><span>💝</span><span>✨</span><span>🍰</span>
@@ -362,19 +373,37 @@
             updateCounter();
         }, 1000);
 
-        // Restart GIF on section enter
+        // Restart GIF on section enter (Robust Pre-load to prevent flash)
         const chatSection = document.getElementById('section-chat');
         const chatGif = document.getElementById('chat-gif');
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Add a unique timestamp to force the GIF to restart from frame 1
-                    const currentSrc = chatGif.src.split('?')[0];
-                    chatGif.src = currentSrc + '?t=' + new Date().getTime();
+                    // 1. Hide immediately to prevent old frame flash
+                    chatGif.style.opacity = '0';
+
+                    const baseSrc = chatGif.getAttribute('data-src');
+                    const newSrc = baseSrc + '?t=' + new Date().getTime();
+
+                    const tempImg = new Image();
+                    tempImg.onload = () => {
+                        chatGif.src = newSrc;
+                        // 2. Give the browser a moment to "paint" the first frame
+                        // while it's still invisible
+                        setTimeout(() => {
+                            chatGif.style.opacity = '1';
+                        }, 50);
+                    };
+                    tempImg.src = newSrc;
+                } else {
+                    // Hide when out of view
+                    chatGif.style.opacity = '0';
+                    // Reset to empty to ensure next run is fresh
+                    chatGif.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
                 }
             });
-        }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+        }, { threshold: 0.1 });
 
 
         observer.observe(chatSection);
@@ -387,8 +416,10 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const bgColor = entry.target.getAttribute('data-bg');
+
                     if (bgColor) {
-                        statusBar.style.backgroundColor = bgColor;
+                        // Keep status bar white always as requested
+                        // statusBar.style.backgroundColor = bgColor;
                     }
                     entry.target.classList.add('is-visible');
                 } else {
