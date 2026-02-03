@@ -60,6 +60,7 @@ body {
     padding: 0;
     overflow: hidden;
     /* Lock scroll on the viewport */
+    /* Ensure background is white on all platforms */
     background-color: white !important;
 }
 
