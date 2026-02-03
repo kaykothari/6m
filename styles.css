@@ -525,7 +525,6 @@ body {
     position: absolute;
     font-size: 2.2rem;
     display: inline-block;
-    animation: floatingEmoji 4s ease-in-out infinite;
     opacity: 1;
 }
 
@@ -542,106 +541,103 @@ body {
     font-size: 2.4rem;
 }
 
-/* Randomized-looking positions for 15 emojis */
+/* Manually Edited Positions (Twice Tweaked Upwards for Top-Right) */
 .emoji-background span:nth-child(1) {
-    top: 10%;
-    left: 5%;
+    top: 3.6%;
+    left: 15.3%;
     transform: rotate(-15deg);
 }
 
 .emoji-background span:nth-child(2) {
-    top: 15%;
-    left: 85%;
-    transform: rotate(10deg);
+    top: 3.2%;
+    left: 56.5%;
+    transform: translateX(-50%) rotate(5deg);
 }
 
 .emoji-background span:nth-child(3) {
-    top: 75%;
-    left: 10%;
-    transform: rotate(20deg);
+    top: 3.0%;
+    left: 74.6%;
+    transform: rotate(15deg);
 }
 
 .emoji-background span:nth-child(4) {
-    top: 80%;
-    left: 80%;
-    transform: rotate(-10deg);
+    top: 15.5%;
+    left: 30.3%;
+    transform: rotate(10deg);
 }
 
 .emoji-background span:nth-child(5) {
-    top: 45%;
-    left: 5%;
-    transform: rotate(5deg);
+    top: 9.5%;
+    left: 57.2%;
+    transform: rotate(-10deg);
 }
 
 .emoji-background span:nth-child(6) {
-    top: 40%;
-    left: 90%;
+    top: 15%;
+    left: 9.8%;
     transform: rotate(-20deg);
 }
 
 .emoji-background span:nth-child(7) {
-    top: 5%;
-    left: 50%;
+    top: 16.5%;
+    left: 73.2%;
+    transform: rotate(20deg);
+}
+
+/* BOTTOM BAND */
+/* Note: User provided Top logic for bottom emojis? */
+/* Looking at the input:
+.emoji-background span:nth-child(8) { top: 86.6%; left: 15.8%; }
+This means we simply use 'top' for everything as the user edited it this way.
+*/
+.emoji-background span:nth-child(8) {
+    top: 86.6%;
+    left: 15.8%;
     transform: rotate(15deg);
 }
 
-.emoji-background span:nth-child(8) {
-    top: 85%;
-    left: 45%;
-    transform: rotate(-5deg);
-}
-
 .emoji-background span:nth-child(9) {
-    top: 25%;
-    left: 20%;
-    transform: rotate(-10deg);
+    top: 89.9%;
+    left: 45.4%;
+    transform: translateX(-50%) rotate(-5deg);
 }
 
 .emoji-background span:nth-child(10) {
-    top: 20%;
-    left: 70%;
-    transform: rotate(12deg);
-}
-
-.emoji-background span:nth-child(11) {
-    top: 60%;
-    left: 15%;
-    transform: rotate(-8deg);
-}
-
-.emoji-background span:nth-child(12) {
-    top: 65%;
-    left: 75%;
-    transform: rotate(18deg);
-}
-
-.emoji-background span:nth-child(13) {
-    top: 30%;
-    left: 40%;
-    transform: rotate(-12deg);
-}
-
-.emoji-background span:nth-child(14) {
-    top: 70%;
-    left: 60%;
-    transform: rotate(6deg);
-}
-
-.emoji-background span:nth-child(15) {
-    top: 50%;
-    left: 50%;
+    top: 86.7%;
+    left: 74.3%;
     transform: rotate(-15deg);
 }
 
+.emoji-background span:nth-child(11) {
+    top: 74.3%;
+    left: 38.7%;
+    transform: rotate(-10deg);
+}
 
-@keyframes floatingEmoji {
+.emoji-background span:nth-child(12) {
+    top: 80.2%;
+    left: 59.9%;
+    transform: rotate(10deg);
+}
 
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
+.emoji-background span:nth-child(13) {
+    top: 74.9%;
+    left: 14.9%;
+    transform: rotate(20deg);
+}
 
-    50% {
-        transform: translateY(-12px) rotate(8deg);
-    }
+.emoji-background span:nth-child(14) {
+    top: 76.5%;
+    left: 79.4%;
+    transform: rotate(-20deg);
+}
+
+.emoji-background span:nth-child(n+15) {
+    display: none;
+}
+
+
+.laminated-sm {
+    max-width: 17rem !important;
+    margin: 0 auto;
 }
